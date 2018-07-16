@@ -1,20 +1,7 @@
-<?php
-
-	include_once 'config.php';
-	$sql = "SELECT * FROM blog_post ORDER BY id DESC";
-	$query = $pdo->prepare($sql);
-	$query->execute();
-	$blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
-
-	/*echo "<pre>";
-	print_r($blogPost);*/
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title>BLOG | PDO</title>
+	<title>ADMIN BLOG | PDO</title>
 	<meta charset="utf-8">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -28,20 +15,11 @@
 		</div>
 		<div class="row">
 			<div class="col-md-8">
-				<?php foreach ($blogPosts as $blog): ?>
-					<div class="blog-post">
-						<h2><?= $blog['title'] ?></h2>
-						<p>
-							Jan 1, 2020 by <a href="#">Jorge</a>
-						</p>
-						<div class="blog-post-image">
-							<img src="images/img_blog.jpg"alt="">
-						</div>
-						<div class="blog-post-content">	
-							<?= $blog["content"] ?>
-						</div>
-					</div>
-				<?php endforeach; ?>
+				<ul>
+					<li>
+						<a href="posts.php">Manage Posts</a>
+					</li>
+				</ul>
 			</div>
 			<div class="col-md-4">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

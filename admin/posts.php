@@ -1,6 +1,6 @@
 <?php
 
-	include_once 'config.php';
+	include_once '../config.php';
 	$sql = "SELECT * FROM blog_post ORDER BY id DESC";
 	$query = $pdo->prepare($sql);
 	$query->execute();
@@ -28,20 +28,22 @@
 		</div>
 		<div class="row">
 			<div class="col-md-8">
-				<?php foreach ($blogPosts as $blog): ?>
-					<div class="blog-post">
-						<h2><?= $blog['title'] ?></h2>
-						<p>
-							Jan 1, 2020 by <a href="#">Jorge</a>
-						</p>
-						<div class="blog-post-image">
-							<img src="images/img_blog.jpg"alt="">
-						</div>
-						<div class="blog-post-content">	
-							<?= $blog["content"] ?>
-						</div>
-					</div>
-				<?php endforeach; ?>
+				<h2>Posts</h2>
+				<a class="btn btn-primary" href="insert-post.php">New Post</a>
+				<table class="table">
+					<tr>
+						<th>Title</th>
+						<th>Edit</th>
+						<th>Delete</th>
+					</tr>
+					<?php foreach ($blogPosts as $blog): ?>
+					<tr>
+						<td><?= $blog['title'] ?></td>
+						<td>Edit</td>
+						<td>Delete</td>
+					</tr>
+					<?php endforeach; ?>
+				</table>
 			</div>
 			<div class="col-md-4">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

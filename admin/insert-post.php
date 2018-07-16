@@ -1,13 +1,7 @@
 <?php
 
-	include_once 'config.php';
-	$sql = "SELECT * FROM blog_post ORDER BY id DESC";
-	$query = $pdo->prepare($sql);
-	$query->execute();
-	$blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
+	include_once '../config.php';
 
-	/*echo "<pre>";
-	print_r($blogPost);*/
 
 ?>
 
@@ -28,20 +22,18 @@
 		</div>
 		<div class="row">
 			<div class="col-md-8">
-				<?php foreach ($blogPosts as $blog): ?>
-					<div class="blog-post">
-						<h2><?= $blog['title'] ?></h2>
-						<p>
-							Jan 1, 2020 by <a href="#">Jorge</a>
-						</p>
-						<div class="blog-post-image">
-							<img src="images/img_blog.jpg"alt="">
-						</div>
-						<div class="blog-post-content">	
-							<?= $blog["content"] ?>
-						</div>
+				<h2>New Posts</h2>
+				<a class="btn btn-default" href="posts.php">Back</a>
+				<form action="insert-post.php" method="post">
+					<div class="form-group">
+						<label for="inputTitle">Title</label>
+						<input class="form-control" type="text" name="title" id="inputTitle">
+						<label for="inputContent">Content</label>
+						<textarea class="form-control" name="content" id="inputContent" rows="5"></textarea>			
+						<br>
+						<input class="btn btn-primary" type="submit" value="Save">			
 					</div>
-				<?php endforeach; ?>
+				</form>
 			</div>
 			<div class="col-md-4">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
