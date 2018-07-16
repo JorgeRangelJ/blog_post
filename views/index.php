@@ -1,15 +1,3 @@
-<?php
-
-	$sql = "SELECT * FROM blog_post ORDER BY id DESC";
-	$query = $pdo->prepare($sql);
-	$query->execute();
-	$blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
-
-	/*echo "<pre>";
-	print_r($blogPost);*/
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
