@@ -1,6 +1,5 @@
 <?php
 
-	include_once '../config.php';
 	$sql = "SELECT * FROM blog_post ORDER BY id DESC";
 	$query = $pdo->prepare($sql);
 	$query->execute();
